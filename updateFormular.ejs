@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Recipe</title>
+    <link rel="stylesheet" href="global.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <%- include("partials/header") %>
+    <form action="/update/<%= i %>" method="post">
+      <input
+        type="text"
+        name="recipe"
+        placeholder="Recipe"
+        value="<%= recept &&
+      recept.recipe %>"
+      />
+      <input
+        type="text"
+        name="ingredients"
+        placeholder="Ingredients"
+        value="<%= JSON.stringify(recept &&
+      recept.ingredients) %>"
+      />
+      <input
+        type="text"
+        name="preparation"
+        placeholder="Preparation"
+        value="<%= recept && recept.preparation %>"
+      />
+      <input
+        type="number"
+        name="calories"
+        placeholder="Calories"
+        value="<%= recept && recept.calories %>"
+      />
+      <button type="submit">Update</button>
+    </form>
+  </body>
+</html>

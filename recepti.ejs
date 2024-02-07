@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="global.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <%- include("partials/header")%>
+    <table border="3" width="100%">
+      <th colspan="5">RECIPES FOR SMOOTHIE</th>
+      <tr>
+        <th>Recipe</th>
+        <th>Ingredients</th>
+        <th>Preparation</th>
+        <th>Calories</th>
+        <th>Delete</th>
+        <th>Update</th>
+      </tr>
+      <% data.forEach((recept, i) => { %>
+      <tr>
+        <td><%= recept.recipe %></td>
+        <td>
+          <% Object.entries(recept.ingredients).forEach(([key, value]) => { %>
+          <%= key %>: <%= value %><br />
+          <% }); %>
+        </td>
+        <td><%= recept.preparation %></td>
+        <td><%= recept.calories %></td>
+        <td><a href="/brishi?index=<%= i %>">Delete</a></td>
+        <td><a href="/update/<%= i %>">Update</a></td>
+      </tr>
+      <% }); %>
+    </table>
+  </body>
+</html>
